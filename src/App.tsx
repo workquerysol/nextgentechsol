@@ -37,6 +37,7 @@ const App = () => (
           <AnimatedRoutes />
         </main>
         <Footer />
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
