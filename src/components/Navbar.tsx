@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -15,6 +15,14 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (id: string) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   const handleNavClick = (to: string) => {
     setOpen(false);
@@ -24,7 +32,8 @@ const Navbar = () => {
         const el = document.getElementById(id);
         el?.scrollIntoView({ behavior: "smooth" });
       } else {
-        window.location.href = to;
+        navigate("/");
+        scrollToSection(id);
       }
     }
   };
