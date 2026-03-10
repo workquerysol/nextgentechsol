@@ -15,15 +15,12 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold mb-3 text-sm text-foreground">Links</h4>
           <div className="flex flex-col gap-2">
-            {["Home", "Services", "Portfolio", "Testimonials", "About", "Contact"].map((item) => (
-              <Link
-                key={item}
-                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item}
-              </Link>
-            ))}
+            <a href="/#home" className="text-sm text-muted-foreground hover:text-primary transition-colors">Home</a>
+            <a href="/#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</a>
+            <a href="/#portfolio" className="text-sm text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
+            <a href="/#testimonials" className="text-sm text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
+            <a href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About</a>
+            <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
           </div>
         </div>
         <div>
