@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Calendar } from "lucide-react";
 import { toast } from "sonner";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
+
+const CALENDLY_URL = "https://calendly.com/your-link"; // Replace with actual Calendly link
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -46,6 +48,23 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
+
+              {/* Calendly CTA */}
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card rounded-xl p-6 flex items-start gap-4 group hover:border-primary/50 transition-colors block"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <Calendar size={20} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Schedule a Call</p>
+                  <p className="text-foreground font-medium">Book a 1-on-1 Discussion</p>
+                  <p className="text-xs text-muted-foreground mt-1">Pick a time that works for you</p>
+                </div>
+              </a>
             </AnimatedSection>
 
             {/* Form */}
