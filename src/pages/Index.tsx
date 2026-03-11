@@ -17,6 +17,7 @@ const services = [
   { icon: Shield, title: "Security & Compliance", desc: "Enterprise-grade security to protect your data.", features: ["SSL/TLS", "GDPR Compliance", "Security Audits"] },
   { icon: BarChart3, title: "Analytics & Insights", desc: "Comprehensive analytics to track user behavior and impact.", features: ["Dashboard Setup", "A/B Testing", "ROI Tracking"] },
   { icon: Headphones, title: "Ongoing Support", desc: "Dedicated support and maintenance to keep you running 24/7.", features: ["24/7 Monitoring", "Regular Updates", "Priority Support"] },
+  { icon: Share2, title: "Social Media Management", desc: "Strategic social media presence that builds your brand and engages your audience.", features: ["Content Creation", "Scheduling & Posting", "Growth Strategy"] },
 ];
 
 const projects = [
