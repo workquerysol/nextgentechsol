@@ -51,7 +51,7 @@ const testimonials = [
     name: "Aarav Mehta",
     role: "Founder, Hope Foundation",
     project: "NGO Website",
-    content: "Nextgen Solution transformed our vision into a beautiful, functional website. Donations increased by 40% within the first month. Their understanding of our mission was remarkable.",
+    content: "NestHub Solution transformed our vision into a beautiful, functional website. Donations increased by 40% within the first month. Their understanding of our mission was remarkable.",
     rating: 5,
     initials: "AM",
   },
