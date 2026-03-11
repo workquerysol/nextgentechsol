@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "15551234567"; // Replace with actual number
+const WHATSAPP_NUMBER = "919876543210";
 const DEFAULT_MESSAGE = "Hi! I'm interested in your web development services. Can we discuss my project?";
 
 const WhatsAppIcon = () => (

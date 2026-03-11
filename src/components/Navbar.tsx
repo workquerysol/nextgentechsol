@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+
+const sections = ["home", "services", "portfolio", "testimonials", "about"];
 
 const links = [
   { to: "/#home", label: "Home" },
@@ -14,8 +16,32 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const handleScroll = () => {
+      let current = "home";
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
 
   const scrollToSection = (id: string) => {
     setTimeout(() => {
@@ -38,6 +64,13 @@ const Navbar = () => {
     }
   };
 
+  const isActive = (to: string) => {
+    if (to.startsWith("/#")) {
+      return location.pathname === "/" && activeSection === to.substring(2);
+    }
+    return location.pathname === to;
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
@@ -47,7 +80,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="font-display text-xl font-bold tracking-tight">
-          <span className="text-gradient">Nextgen</span>{" "}
+          <span className="text-gradient">NestHub</span>{" "}
           <span className="text-foreground">Solution</span>
         </Link>
 
@@ -58,22 +91,32 @@ const Navbar = () => {
               <button
                 key={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className="text-sm font-medium transition-colors duration-200 text-muted-foreground hover:text-foreground"
+                className={`text-sm font-medium transition-colors duration-200 relative ${
+                  isActive(link.to)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
+                {isActive(link.to) && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  />
+                )}
               </button>
             ) : (
               <Link
                 key={link.to}
                 to={link.to}
                 className={`text-sm font-medium transition-colors duration-200 relative ${
-                  location.pathname === link.to
+                  isActive(link.to)
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
-                {location.pathname === link.to && (
+                {isActive(link.to) && (
                   <motion.div
                     layoutId="nav-underline"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
@@ -112,7 +155,9 @@ const Navbar = () => {
                   <button
                     key={link.to}
                     onClick={() => handleNavClick(link.to)}
-                    className="text-lg font-medium text-muted-foreground text-left"
+                    className={`text-lg font-medium text-left ${
+                      isActive(link.to) ? "text-primary" : "text-muted-foreground"
+                    }`}
                   >
                     {link.label}
                   </button>
@@ -122,7 +167,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={() => setOpen(false)}
                     className={`text-lg font-medium ${
-                      location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                      isActive(link.to) ? "text-primary" : "text-muted-foreground"
                     }`}
                   >
                     {link.label}
