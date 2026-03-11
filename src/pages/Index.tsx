@@ -300,7 +300,7 @@ const Index = () => {
               Building the Web, <span className="text-gradient">One Pixel at a Time</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Founded in 2024, Nextgen Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results.
+              Founded in 2024, NestHub Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results.
             </p>
           </AnimatedSection>
 
