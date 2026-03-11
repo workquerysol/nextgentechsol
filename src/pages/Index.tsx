@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart } from "lucide-react";
+import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart, Share2 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import projectNgo from "@/assets/project-ngo.jpg";
