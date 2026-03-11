@@ -67,7 +67,7 @@ const testimonials = [
     name: "Rohan Kapoor",
     role: "CEO, TradeView Academy",
     project: "Trading Platform",
-    content: "Building a trading education platform is complex, but the Nextgen team handled it with precision. Real-time charts, course modules, community features — everything works flawlessly.",
+    content: "Building a trading education platform is complex, but the NestHub team handled it with precision. Real-time charts, course modules, community features — everything works flawlessly.",
     rating: 5,
     initials: "RK",
   },
