@@ -59,7 +59,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Owner, Golden Harvest Honey",
     project: "E-Commerce Platform",
-    content: "Our honey brand needed an online presence that matched the quality of our product. Nextgen delivered beyond expectations — the site is gorgeous and our online sales have tripled.",
+    content: "Our honey brand needed an online presence that matched the quality of our product. NestHub delivered beyond expectations — the site is gorgeous and our online sales have tripled.",
     rating: 5,
     initials: "PS",
   },
