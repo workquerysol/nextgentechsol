@@ -6,7 +6,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <h3 className="font-display text-xl font-bold mb-3">
-            <span className="text-gradient">Nextgen</span> Solution
+            <span className="text-gradient">NestHub</span> Solution
           </h3>
           <p className="text-muted-foreground text-sm max-w-sm">
             We craft digital experiences that drive growth. From concept to launch, we build websites that make an impact.
@@ -26,14 +26,15 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold mb-3 text-sm text-foreground">Contact</h4>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <span>hello@nextgensolution.com</span>
-            <span>+1 (555) 123-4567</span>
+            <span>hello@nesthubsolution.com</span>
+            <span>+91 98765 43210</span>
+            <span>Jaipur, Rajasthan, India</span>
           </div>
         </div>
       </div>
       <div className="glow-line mt-10 mb-6" />
       <p className="text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Nextgen Solution. All rights reserved.
+        © {new Date().getFullYear()} NestHub Solution. All rights reserved.
       </p>
     </div>
   </footer>

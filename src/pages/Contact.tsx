@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send, Calendar } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Calendar, ArrowRight, Clock, Video } from "lucide-react";
 import { toast } from "sonner";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
+import calendlyImage from "@/assets/calendly-cta.jpg";
 
-const CALENDLY_URL = "https://calendly.com/your-link"; // Replace with actual Calendly link
+const CALENDLY_URL = "https://calendly.com/your-link";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -17,14 +18,72 @@ const Contact = () => {
 
   return (
     <PageTransition>
-      <section className="pt-32 pb-20">
+      {/* Calendly Hero Section */}
+      <section className="pt-28 pb-16">
+        <div className="container mx-auto px-6">
+          <AnimatedSection className="max-w-5xl mx-auto">
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                {/* Image Side */}
+                <div className="relative h-64 lg:h-auto min-h-[320px]">
+                  <img
+                    src={calendlyImage}
+                    alt="Schedule a 1-on-1 consultation call"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-background/20 lg:to-background/80" />
+                </div>
+
+                {/* Content Side */}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <span className="inline-flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-widest mb-4">
+                    <Calendar size={16} />
+                    Schedule a Call
+                  </span>
+                  <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                    Book a Free{" "}
+                    <span className="text-gradient">1-on-1 Discovery Call</span>
+                  </h1>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Let's discuss your project in detail. Pick a time that works for you and we'll walk through your vision, goals, and how we can bring it to life.
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    {[
+                      { icon: Clock, text: "30 min session" },
+                      { icon: Video, text: "Video or Phone" },
+                    ].map((item) => (
+                      <div key={item.text} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <item.icon size={16} className="text-primary" />
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto"
+                  >
+                    Book Your Free Call <ArrowRight size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="pb-20">
         <div className="container mx-auto px-6">
           <AnimatedSection className="max-w-3xl mx-auto text-center mb-16">
             <span className="text-primary text-sm font-semibold uppercase tracking-widest">Contact Us</span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold mt-3 mb-5">
-              Let's Start Your{" "}
-              <span className="text-gradient">Next Project</span>
-            </h1>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5">
+              Or Send Us a{" "}
+              <span className="text-gradient">Message</span>
+            </h2>
             <p className="text-lg text-muted-foreground">
               Have an idea? We'd love to hear about it. Reach out and let's discuss how we can help.
             </p>
@@ -34,9 +93,9 @@ const Contact = () => {
             {/* Info */}
             <AnimatedSection className="lg:col-span-2 space-y-6" delay={0.1}>
               {[
-                { icon: Mail, label: "Email", value: "hello@nextgensolution.com" },
-                { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-                { icon: MapPin, label: "Office", value: "San Francisco, CA" },
+                { icon: Mail, label: "Email", value: "hello@nesthubsolution.com" },
+                { icon: Phone, label: "Phone", value: "+91 98765 43210" },
+                { icon: MapPin, label: "Office", value: "Jaipur, Rajasthan, India" },
               ].map((item) => (
                 <div key={item.label} className="glass-card rounded-xl p-6 flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -48,23 +107,6 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
-
-              {/* Calendly CTA */}
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card rounded-xl p-6 flex items-start gap-4 group hover:border-primary/50 transition-colors block"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <Calendar size={20} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Schedule a Call</p>
-                  <p className="text-foreground font-medium">Book a 1-on-1 Discussion</p>
-                  <p className="text-xs text-muted-foreground mt-1">Pick a time that works for you</p>
-                </div>
-              </a>
             </AnimatedSection>
 
             {/* Form */}

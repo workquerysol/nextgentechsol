@@ -51,7 +51,7 @@ const testimonials = [
     name: "Aarav Mehta",
     role: "Founder, Hope Foundation",
     project: "NGO Website",
-    content: "Nextgen Solution transformed our vision into a beautiful, functional website. Donations increased by 40% within the first month. Their understanding of our mission was remarkable.",
+    content: "NestHub Solution transformed our vision into a beautiful, functional website. Donations increased by 40% within the first month. Their understanding of our mission was remarkable.",
     rating: 5,
     initials: "AM",
   },
@@ -59,7 +59,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Owner, Golden Harvest Honey",
     project: "E-Commerce Platform",
-    content: "Our honey brand needed an online presence that matched the quality of our product. Nextgen delivered beyond expectations — the site is gorgeous and our online sales have tripled.",
+    content: "Our honey brand needed an online presence that matched the quality of our product. NestHub delivered beyond expectations — the site is gorgeous and our online sales have tripled.",
     rating: 5,
     initials: "PS",
   },
@@ -67,7 +67,7 @@ const testimonials = [
     name: "Rohan Kapoor",
     role: "CEO, TradeView Academy",
     project: "Trading Platform",
-    content: "Building a trading education platform is complex, but the Nextgen team handled it with precision. Real-time charts, course modules, community features — everything works flawlessly.",
+    content: "Building a trading education platform is complex, but the NestHub team handled it with precision. Real-time charts, course modules, community features — everything works flawlessly.",
     rating: 5,
     initials: "RK",
   },
@@ -300,7 +300,7 @@ const Index = () => {
               Building the Web, <span className="text-gradient">One Pixel at a Time</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Founded in 2024, Nextgen Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results.
+              Founded in 2024, NestHub Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results.
             </p>
           </AnimatedSection>
 
