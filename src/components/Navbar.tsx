@@ -80,12 +80,8 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl bg-background/70"
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
-        <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold tracking-tight">
-          <img src={logo} alt="NestHub Solution" className="h-9 w-9" />
-          <span>
-            <span className="text-gradient">NestHub</span>{" "}
-            <span className="text-foreground">Solution</span>
-          </span>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="NestHub Solution" className="h-10 w-10" />
         </Link>
 
         {/* Desktop */}
