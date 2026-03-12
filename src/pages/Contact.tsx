@@ -9,9 +9,9 @@ import calendlyImage from "@/assets/calendly-cta.jpg";
 const CALENDLY_URL = "https://calendly.com/your-link";
 
 // EmailJS Configuration — these are publishable client-side keys, safe to include in code
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_ygknsaa";
+const EMAILJS_TEMPLATE_ID = "template_5c3rxnd";
+const EMAILJS_PUBLIC_KEY = "ChhMIlXaaVExSLL7S";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -121,7 +121,7 @@ const Contact = () => {
             <AnimatedSection className="lg:col-span-2 space-y-6" delay={0.1}>
               {[
                 { icon: Mail, label: "Email", value: "workquerysol@gmail.com" },
-                { icon: Phone, label: "Phone", value: "+91 98765 43210" },
+                { icon: Phone, label: "Phone", value: "+91 8188941304" },
                 { icon: MapPin, label: "Office", value: "Jaipur, Rajasthan, India" },
               ].map((item) => (
                 <div key={item.label} className="glass-card rounded-xl p-6 flex items-start gap-4">
