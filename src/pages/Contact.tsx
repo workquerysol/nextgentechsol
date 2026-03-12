@@ -24,15 +24,14 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        "service_ygknsaa",
+        "template_5c3rxnd",
         {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
-          to_email: "workquerysol@gmail.com",
         },
-        EMAILJS_PUBLIC_KEY
+        "ChhMIlXaaVExSLL7S"
       );
       toast.success("Message sent! We'll get back to you soon.");
       setForm({ name: "", email: "", message: "" });
