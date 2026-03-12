@@ -1,19 +1,46 @@
-import { useState } from "react";
-import { Mail, MapPin, Phone, Send, Calendar, ArrowRight, Clock, Video } from "lucide-react";
+import { useState, useRef } from "react";
+import { Mail, MapPin, Phone, Send, Calendar, ArrowRight, Clock, Video, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import calendlyImage from "@/assets/calendly-cta.jpg";
 
 const CALENDLY_URL = "https://calendly.com/your-link";
 
+// EmailJS Configuration — these are publishable client-side keys, safe to include in code
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! We'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          to_email: "workquerysol@gmail.com",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      toast.success("Message sent! We'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -93,7 +120,7 @@ const Contact = () => {
             {/* Info */}
             <AnimatedSection className="lg:col-span-2 space-y-6" delay={0.1}>
               {[
-                { icon: Mail, label: "Email", value: "hello@nesthubsolution.com" },
+                { icon: Mail, label: "Email", value: "workquerysol@gmail.com" },
                 { icon: Phone, label: "Phone", value: "+91 98765 43210" },
                 { icon: MapPin, label: "Office", value: "Jaipur, Rajasthan, India" },
               ].map((item) => (
@@ -111,11 +138,12 @@ const Contact = () => {
 
             {/* Form */}
             <AnimatedSection className="lg:col-span-3" delay={0.2}>
-              <form onSubmit={handleSubmit} className="glass-card rounded-xl p-8 space-y-5">
+              <form ref={formRef} onSubmit={handleSubmit} className="glass-card rounded-xl p-8 space-y-5">
                 <div>
                   <label className="text-sm text-muted-foreground mb-1.5 block">Name</label>
                   <input
                     type="text"
+                    name="from_name"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -127,6 +155,7 @@ const Contact = () => {
                   <label className="text-sm text-muted-foreground mb-1.5 block">Email</label>
                   <input
                     type="email"
+                    name="from_email"
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -137,6 +166,7 @@ const Contact = () => {
                 <div>
                   <label className="text-sm text-muted-foreground mb-1.5 block">Message</label>
                   <textarea
+                    name="message"
                     required
                     rows={5}
                     value={form.message}
@@ -147,9 +177,14 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+                  disabled={sending}
+                  className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-60"
                 >
-                  Send Message <Send size={18} />
+                  {sending ? (
+                    <>Sending... <Loader2 size={18} className="animate-spin" /></>
+                  ) : (
+                    <>Send Message <Send size={18} /></>
+                  )}
                 </button>
               </form>
             </AnimatedSection>
