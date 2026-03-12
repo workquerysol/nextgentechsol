@@ -9,9 +9,9 @@ import calendlyImage from "@/assets/calendly-cta.jpg";
 const CALENDLY_URL = "https://calendly.com/your-link";
 
 // EmailJS Configuration — these are publishable client-side keys, safe to include in code
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_ygknsaa";
+const EMAILJS_TEMPLATE_ID = "template_5c3rxnd";
+const EMAILJS_PUBLIC_KEY = "ChhMIlXaaVExSLL7S";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
