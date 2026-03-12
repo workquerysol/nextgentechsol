@@ -27,7 +27,7 @@ const Footer = () => (
           <h4 className="font-display font-semibold mb-3 text-sm text-foreground">Contact</h4>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
             <span>workquerysol@gmail.com</span>
-            <span>+91 98765 43210</span>
+            <span>+91 8188941304</span>
             <span>Jaipur, Rajasthan, India</span>
           </div>
         </div>
