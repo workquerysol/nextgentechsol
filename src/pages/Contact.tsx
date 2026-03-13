@@ -1,17 +1,15 @@
 import { useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send, Calendar, ArrowRight, Clock, Video, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import emailjs from "@emailjs/browser";
+// removed EmailJS; using Static Forms instead
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import calendlyImage from "@/assets/calendly-cta.jpg";
 
 const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
 
-// EmailJS Configuration — these are publishable client-side keys, safe to include in code
-const EMAILJS_SERVICE_ID = "service_ygknsaa";
-const EMAILJS_TEMPLATE_ID = "template_5c3rxnd";
-const EMAILJS_PUBLIC_KEY = "ChhMIlXaaVExSLL7S";
+// Static Forms API key
+const STATICFORM_API_KEY = "sf_96hcfm4egdje3k77kii2j9ma";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -23,18 +21,35 @@ const Contact = () => {
     setSending(true);
 
     try {
-      await emailjs.send(
-        "service_ygknsaa",
-        "template_5c3rxnd",
-        {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
-        },
-        "ChhMIlXaaVExSLL7S"
-      );
-      toast.success("Message sent! We'll get back to you soon.");
-      setForm({ name: "", email: "", message: "" });
+      // Prepare form payload for Static Forms
+      const payload = {
+        apiKey: STATICFORM_API_KEY,
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        // set a dynamic subject using the provided template
+        subject: `User ${form.name} nquery`,
+        // set replyTo so you can reply directly to the submitter
+        replyTo: form.email,
+      } as Record<string, string>;
+
+      const res = await fetch("https://api.staticforms.dev/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // If you have Auto-Responder enabled in your Static Forms dashboard
+        // the user will receive the configured confirmation email automatically.
+        // We also show an immediate in-app confirmation for all users.
+        toast.success("Message sent! We'll get back to you soon.");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error(data.message || "Failed to send message. Please try again.");
+      }
     } catch (error) {
       toast.error("Failed to send message. Please try again or email us directly.");
     } finally {

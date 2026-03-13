@@ -90,6 +90,8 @@ const stats = [
 ];
 
 const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
+// Static Forms API key
+const STATICFORM_API_KEY = "sf_96hcfm4egdje3k77kii2j9ma";
 
 const Index = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -100,15 +102,15 @@ const Index = () => {
     e.preventDefault();
     setSending(true);
     try {
-      const response = await fetch("https://api.staticforms.xyz/submit", {
+      const response = await fetch("https://api.staticforms.dev/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          accessKey: "sf_96hcfm4egdje3k77kii2j9maadd",
+          apiKey: STATICFORM_API_KEY,
           name: form.name,
           email: form.email,
           message: form.message,
-          subject: `New inquiry from ${form.name}`,
+          subject: `User ${form.name} nquery`,
           replyTo: form.email,
         }),
       });
@@ -117,7 +119,7 @@ const Index = () => {
         toast.success("Message sent! We'll get back to you soon.");
         setForm({ name: "", email: "", message: "" });
       } else {
-        throw new Error("Submission failed");
+        toast.error(data.message || "Failed to send message. Please try again.");
       }
     } catch (error) {
       toast.error("Failed to send message. Please try again or email us directly.");
