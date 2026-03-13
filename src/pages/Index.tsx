@@ -89,6 +89,8 @@ const stats = [
   { value: "2+", label: "Years Experience" },
 ];
 
+const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
+
 const Index = () => {
   return (
     <PageTransition>
