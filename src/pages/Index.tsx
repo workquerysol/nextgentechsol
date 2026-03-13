@@ -162,12 +162,12 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Link
-                to="/contact"
+              <a
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
               >
                 Start a Project <ArrowRight size={18} />
-              </Link>
+              </a>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
