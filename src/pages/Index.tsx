@@ -197,13 +197,13 @@ const Index = () => {
       {/* Stats */}
       <section className="border-y border-border/50 bg-card/30">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-3 divide-x divide-border/50">
+          <div className="flex flex-wrap justify-center gap-4 py-10 md:py-14">
             {stats.map((stat, i) => (
-              <AnimatedSection key={stat.label} delay={i * 0.1} className="py-10 md:py-14 text-center">
-                <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-1">
-                  {stat.value}
+              <AnimatedSection key={stat.label} delay={i * 0.1}>
+                <div className="inline-flex flex-col items-center px-6 py-4 rounded-full bg-primary/10 border border-primary/20 shadow-sm min-w-[140px]">
+                  <span className="font-display text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</span>
+                  <span className="text-xs md:text-sm text-muted-foreground font-medium">{stat.label}</span>
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </AnimatedSection>
             ))}
           </div>
