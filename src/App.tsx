@@ -18,7 +18,6 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
