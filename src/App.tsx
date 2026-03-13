@@ -7,9 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Index from "./pages/Index";
-import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,7 +18,6 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
@@ -39,7 +36,6 @@ const App = () => (
         </main>
         <Footer />
         <WhatsAppButton />
-        <ThemeSwitcher />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

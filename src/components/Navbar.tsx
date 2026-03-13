@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const sections = ["home", "services", "portfolio", "testimonials", "about"];
+const sections = ["home", "services", "portfolio", "testimonials", "about", "contact"];
 
 const links = [
   { to: "/#home", label: "Home" },
@@ -12,7 +12,7 @@ const links = [
   { to: "/#portfolio", label: "Portfolio" },
   { to: "/#testimonials", label: "Testimonials" },
   { to: "/#about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -81,7 +81,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="NestHub Solution" className="h-10 w-10" />
+          <img src={logo} alt="NestHub Solution" className="h-12 w-12 object-contain" />
         </Link>
 
         {/* Desktop */}
@@ -125,12 +125,12 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <Link
-            to="/contact"
+          <button
+            onClick={() => handleNavClick("/#contact")}
             className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Get Started
-          </Link>
+          </button>
         </div>
 
         {/* Mobile toggle */}

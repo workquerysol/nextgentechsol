@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 
 const Footer = () => (
   <footer className="border-t border-border/50 bg-card/50">
@@ -20,7 +20,7 @@ const Footer = () => (
             <a href="/#portfolio" className="text-sm text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
             <a href="/#testimonials" className="text-sm text-muted-foreground hover:text-primary transition-colors">Testimonials</a>
             <a href="/#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About</a>
-            <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+            <a href="/#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</a>
           </div>
         </div>
         <div>
