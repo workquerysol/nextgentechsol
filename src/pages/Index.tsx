@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart, Share2, Mail, MapPin, Phone, Send, Calendar, Clock, Video, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import emailjs from "@emailjs/browser";
+
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import projectNgo from "@/assets/project-ngo.jpg";
@@ -100,18 +100,25 @@ const Index = () => {
     e.preventDefault();
     setSending(true);
     try {
-      await emailjs.send(
-        "service_ygknsaa",
-        "template_5c3rxnd",
-        {
-          from_name: form.name,
-          from_email: form.email,
+      const response = await fetch("https://api.staticforms.xyz/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          accessKey: "sf_96hcfm4egdje3k77kii2j9maadd",
+          name: form.name,
+          email: form.email,
           message: form.message,
-        },
-        "ChhMIlXaaVExSLL7S"
-      );
-      toast.success("Message sent! We'll get back to you soon.");
-      setForm({ name: "", email: "", message: "" });
+          subject: `New inquiry from ${form.name}`,
+          replyTo: form.email,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        toast.success("Message sent! We'll get back to you soon.");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Submission failed");
+      }
     } catch (error) {
       toast.error("Failed to send message. Please try again or email us directly.");
     } finally {
