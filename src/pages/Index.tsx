@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart, Share2 } from "lucide-react";
+import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart, Share2, Mail, MapPin, Phone, Send, Calendar, Clock, Video, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import projectNgo from "@/assets/project-ngo.jpg";
 import projectHoney from "@/assets/project-honey.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
+import calendlyImage from "@/assets/calendly-cta.jpg";
 
 const services = [
   { icon: Code2, title: "Custom Web Development", desc: "Tailored websites and web applications built with cutting-edge technologies.", features: ["React & Next.js", "API Integration", "CMS Development"] },
