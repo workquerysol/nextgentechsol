@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const sections = ["home", "services", "portfolio", "testimonials", "about"];
+const sections = ["home", "services", "portfolio", "testimonials", "about", "contact"];
 
 const links = [
   { to: "/#home", label: "Home" },
