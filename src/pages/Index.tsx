@@ -365,13 +365,100 @@ const Index = () => {
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
               Let's turn your ideas into reality. Get in touch and let's start your next project together.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
               Get in Touch <ArrowRight size={18} />
-            </Link>
+            </a>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 md:py-32">
+        <div className="container mx-auto px-6">
+          {/* Calendly CTA */}
+          <AnimatedSection className="max-w-5xl mx-auto mb-20">
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="relative h-64 lg:h-auto min-h-[320px]">
+                  <img src={calendlyImage} alt="Schedule a consultation call" className="absolute inset-0 w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-background/20 lg:to-background/80" />
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <span className="inline-flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-widest mb-4">
+                    <Calendar size={16} /> Schedule a Call
+                  </span>
+                  <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                    Book a Free <span className="text-gradient">1-on-1 Discovery Call</span>
+                  </h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Let's discuss your project in detail. Pick a time that works for you and we'll walk through your vision, goals, and how we can bring it to life.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    {[{ icon: Clock, text: "30 min session" }, { icon: Video, text: "Video or Phone" }].map((item) => (
+                      <div key={item.text} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <item.icon size={16} className="text-primary" /> {item.text}
+                      </div>
+                    ))}
+                  </div>
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto">
+                    Book Your Free Call <ArrowRight size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Contact Form */}
+          <AnimatedSection className="max-w-3xl mx-auto text-center mb-16">
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">Contact Us</span>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5">
+              Or Send Us a <span className="text-gradient">Message</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">Have an idea? We'd love to hear about it.</p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+            <AnimatedSection className="lg:col-span-2 space-y-6" delay={0.1}>
+              {[
+                { icon: Mail, label: "Email", value: "workquerysol@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+91 8188941304" },
+                { icon: MapPin, label: "Office", value: "Jaipur, Rajasthan, India" },
+              ].map((item) => (
+                <div key={item.label} className="glass-card rounded-xl p-6 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <item.icon size={20} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{item.label}</p>
+                    <p className="text-foreground font-medium">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </AnimatedSection>
+
+            <AnimatedSection className="lg:col-span-3" delay={0.2}>
+              <form ref={formRef} onSubmit={handleSubmit} className="glass-card rounded-xl p-8 space-y-5">
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Name</label>
+                  <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Email</label>
+                  <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="you@example.com" />
+                </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Message</label>
+                  <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell us about your project..." />
+                </div>
+                <button type="submit" disabled={sending} className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-60">
+                  {sending ? (<>Sending... <Loader2 size={18} className="animate-spin" /></>) : (<>Send Message <Send size={18} /></>)}
+                </button>
+              </form>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
     </PageTransition>
