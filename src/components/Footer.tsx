@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 
 const Footer = () => (
   <footer className="border-t border-border/50 bg-card/50">
