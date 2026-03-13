@@ -92,6 +92,33 @@ const stats = [
 const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
 
 const Index = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      await emailjs.send(
+        "service_ygknsaa",
+        "template_5c3rxnd",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        "ChhMIlXaaVExSLL7S"
+      );
+      toast.success("Message sent! We'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <PageTransition>
       {/* Hero */}
