@@ -6,7 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import calendlyImage from "@/assets/calendly-cta.jpg";
 
-const CALENDLY_URL = "https://calendly.com/your-link";
+const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
 
 // EmailJS Configuration — these are publishable client-side keys, safe to include in code
 const EMAILJS_SERVICE_ID = "service_ygknsaa";
