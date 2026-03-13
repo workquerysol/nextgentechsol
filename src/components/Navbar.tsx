@@ -12,7 +12,7 @@ const links = [
   { to: "/#portfolio", label: "Portfolio" },
   { to: "/#testimonials", label: "Testimonials" },
   { to: "/#about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
