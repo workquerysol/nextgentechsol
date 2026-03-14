@@ -1,43 +1,42 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 import projectNgo from "@/assets/project-ngo.jpg";
 import projectHoney from "@/assets/project-honey.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
 
-const projects = [
-  {
-    title: "Hope Foundation",
-    category: "NGO Website",
-    description:
-      "A compassionate, impact-driven website for a non-profit organization. Features donation integration, volunteer sign-up, event management, and storytelling sections that highlight community impact.",
-    tags: ["React", "Tailwind CSS", "Payment Gateway", "CMS"],
-    image: projectNgo,
-    color: "from-orange-500/20 to-red-500/20",
-  },
-  {
-    title: "Golden Harvest Honey",
-    category: "E-Commerce",
-    description:
-      "A warm, inviting e-commerce platform for an artisanal honey brand. Complete with product catalog, cart system, secure checkout, and a blog showcasing the honey-making journey from hive to jar.",
-    tags: ["E-Commerce", "Stripe", "Product Catalog", "Blog"],
-    image: projectHoney,
-    color: "from-amber-500/20 to-yellow-500/20",
-  },
-  {
-    title: "TradeView Academy",
-    category: "Trading Platform",
-    description:
-      "An educational trading platform combining real-time market data visualization with structured learning modules. Features interactive charts, paper trading, courses, and community discussions.",
-    tags: ["Real-time Data", "Charts", "LMS", "WebSockets"],
-    image: projectTrading,
-    color: "from-emerald-500/20 to-cyan-500/20",
-  },
-];
-
 const Portfolio = () => {
+  const { t } = useTranslation();
+
+  const projects = [
+    {
+      title: t('portfolio.projects.ngo.title'),
+      category: t('portfolio.projects.ngo.category'),
+      description: t('portfolio.projects.ngo.description'),
+      tags: ["React", "Tailwind CSS", "Payment Gateway", "CMS"],
+      image: projectNgo,
+      color: "from-orange-500/20 to-red-500/20",
+    },
+    {
+      title: t('portfolio.projects.ecommerce.title'),
+      category: t('portfolio.projects.ecommerce.category'),
+      description: t('portfolio.projects.ecommerce.description'),
+      tags: ["E-Commerce", "Stripe", "Product Catalog", "Blog"],
+      image: projectHoney,
+      color: "from-amber-500/20 to-yellow-500/20",
+    },
+    {
+      title: t('portfolio.projects.trading.title'),
+      category: t('portfolio.projects.trading.category'),
+      description: t('portfolio.projects.trading.description'),
+      tags: ["Real-time Data", "Charts", "LMS", "WebSockets"],
+      image: projectTrading,
+      color: "from-emerald-500/20 to-cyan-500/20",
+    },
+  ];
   return (
     <PageTransition>
       {/* Hero */}
@@ -46,15 +45,14 @@ const Portfolio = () => {
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <span className="text-primary text-sm font-semibold uppercase tracking-widest">
-              Our Work
+              {t('portfolio.section_label')}
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold mt-3 mb-5">
-              Projects We're{" "}
-              <span className="text-gradient">Proud Of</span>
+              {t('portfolio.section_title')}{" "}
+              <span className="text-gradient">{t('portfolio.section_highlight')}</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Every project tells a story. Here are three recent builds that
-              showcase our craft, creativity, and commitment to results.
+              {t('portfolio.description')}
             </p>
           </AnimatedSection>
         </div>
@@ -90,7 +88,7 @@ const Portfolio = () => {
                     />
                     <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center">
                       <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm">
-                        View Details <ExternalLink size={16} />
+                        {t('portfolio.view_details')} <ExternalLink size={16} />
                       </span>
                     </div>
                   </motion.div>

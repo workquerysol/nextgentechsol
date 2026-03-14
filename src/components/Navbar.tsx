@@ -2,24 +2,27 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import logo from "@/assets/logo.png";
 
 const sections = ["home", "services", "portfolio", "testimonials", "about", "contact"];
 
-const links = [
-  { to: "/#home", label: "Home" },
-  { to: "/#services", label: "Services" },
-  { to: "/#portfolio", label: "Portfolio" },
-  { to: "/#testimonials", label: "Testimonials" },
-  { to: "/#about", label: "About" },
-  { to: "/#contact", label: "Contact" },
-];
-
 const Navbar = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
   const navigate = useNavigate();
+
+  const navLinks = [
+    { to: "/#home", label: t('navbar.home') },
+    { to: "/#services", label: t('navbar.services') },
+    { to: "/#portfolio", label: t('navbar.portfolio') },
+    { to: "/#testimonials", label: t('navbar.testimonials') },
+    { to: "/#about", label: t('navbar.about') },
+    { to: "/#contact", label: t('navbar.contact') },
+  ];
 
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -86,7 +89,7 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link) =>
+          {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <button
                 key={link.to}
@@ -125,6 +128,7 @@ const Navbar = () => {
               </Link>
             )
           )}
+          <LanguageSwitcher />
           <button
             onClick={() => handleNavClick("/#contact")}
             className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -150,7 +154,7 @@ const Navbar = () => {
             className="md:hidden overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-xl"
           >
             <div className="flex flex-col gap-4 p-6">
-              {links.map((link) =>
+              {navLinks.map((link) =>
                 link.to.startsWith("/#") ? (
                   <button
                     key={link.to}

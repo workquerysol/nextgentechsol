@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Palette, Zap, Globe, BarChart3, Shield, Smartphone, Cloud, Headphones, ExternalLink, Star, Quote, Target, Eye, Heart, Share2, Mail, MapPin, Phone, Send, Calendar, Clock, Video, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from 'react-i18next';
 
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -9,46 +10,6 @@ import projectNgo from "@/assets/project-ngo.jpg";
 import projectHoney from "@/assets/project-honey.jpg";
 import projectTrading from "@/assets/project-trading.jpg";
 import calendlyImage from "@/assets/calendly-cta.jpg";
-
-const services = [
-  { icon: Code2, title: "Custom Web Development", desc: "Tailored websites and web applications built with cutting-edge technologies.", features: ["React & Next.js", "API Integration", "CMS Development"] },
-  { icon: Palette, title: "UI/UX Design", desc: "User-centered design that converts. Intuitive interfaces backed by research.", features: ["Wireframing", "Prototyping", "User Testing"] },
-  { icon: Smartphone, title: "Responsive Design", desc: "Pixel-perfect designs that look stunning on every device.", features: ["Mobile-First", "Cross-Browser", "Adaptive Layouts"] },
-  { icon: Zap, title: "Performance Optimization", desc: "Lightning-fast websites that rank higher and convert better.", features: ["Core Web Vitals", "Caching Strategy", "Code Splitting"] },
-  { icon: Globe, title: "SEO & Digital Marketing", desc: "Data-driven strategies to improve your online visibility.", features: ["Technical SEO", "Content Strategy", "Analytics Setup"] },
-  { icon: Cloud, title: "Cloud Solutions", desc: "Scalable cloud infrastructure that grows with your business.", features: ["Cloud Migration", "Auto-Scaling", "DevOps"] },
-  { icon: Shield, title: "Security & Compliance", desc: "Enterprise-grade security to protect your data.", features: ["SSL/TLS", "GDPR Compliance", "Security Audits"] },
-  { icon: BarChart3, title: "Analytics & Insights", desc: "Comprehensive analytics to track user behavior and impact.", features: ["Dashboard Setup", "A/B Testing", "ROI Tracking"] },
-  { icon: Headphones, title: "Ongoing Support", desc: "Dedicated support and maintenance to keep you running 24/7.", features: ["24/7 Monitoring", "Regular Updates", "Priority Support"] },
-  { icon: Share2, title: "Social Media Management", desc: "Strategic social media presence that builds your brand and engages your audience.", features: ["Content Creation", "Scheduling & Posting", "Growth Strategy"] },
-];
-
-const projects = [
-  {
-    title: "Hope Foundation",
-    category: "NGO Website",
-    description: "A compassionate, impact-driven website for a non-profit organization. Features donation integration, volunteer sign-up, event management, and storytelling sections.",
-    tags: ["React", "Tailwind CSS", "Payment Gateway", "CMS"],
-    image: projectNgo,
-    color: "from-orange-500/20 to-red-500/20",
-  },
-  {
-    title: "Golden Harvest Honey",
-    category: "E-Commerce",
-    description: "A warm, inviting e-commerce platform for an artisanal honey brand with product catalog, cart system, secure checkout, and a blog.",
-    tags: ["E-Commerce", "Stripe", "Product Catalog", "Blog"],
-    image: projectHoney,
-    color: "from-amber-500/20 to-yellow-500/20",
-  },
-  {
-    title: "TradeView Academy",
-    category: "Trading Platform",
-    description: "An educational trading platform combining real-time market data visualization with structured learning modules, interactive charts, and community discussions.",
-    tags: ["Real-time Data", "Charts", "LMS", "WebSockets"],
-    image: projectTrading,
-    color: "from-emerald-500/20 to-cyan-500/20",
-  },
-];
 
 const testimonials = [
   {
@@ -83,20 +44,61 @@ const values = [
   { icon: Heart, title: "Client-Centric", desc: "Your success is our success. Every decision aligns with your goals." },
 ];
 
-const stats = [
-  { value: "3+", label: "Projects Delivered" },
-  { value: "100%", label: "Client Satisfaction" },
-  { value: "2+", label: "Years Experience" },
-];
-
 const CALENDLY_URL = "https://calendly.com/workquerysol/30min";
 // Static Forms API key
 const STATICFORM_API_KEY = "sf_96hcfm4egdje3k77kii2j9ma";
 
 const Index = () => {
+  const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const stats = [
+    { value: "3+", label: t('stats.projects') },
+    { value: "100%", label: t('stats.satisfaction') },
+    { value: "2+", label: t('stats.experience') },
+  ];
+
+  const services = [
+    { icon: Code2, title: t('services.items.web_development.title'), desc: t('services.items.web_development.desc'), features: t('services.items.web_development.features', { returnObjects: true }) },
+    { icon: Palette, title: t('services.items.ui_design.title'), desc: t('services.items.ui_design.desc'), features: t('services.items.ui_design.features', { returnObjects: true }) },
+    { icon: Smartphone, title: t('services.items.responsive.title'), desc: t('services.items.responsive.desc'), features: t('services.items.responsive.features', { returnObjects: true }) },
+    { icon: Zap, title: t('services.items.performance.title'), desc: t('services.items.performance.desc'), features: t('services.items.performance.features', { returnObjects: true }) },
+    { icon: Globe, title: t('services.items.seo.title'), desc: t('services.items.seo.desc'), features: t('services.items.seo.features', { returnObjects: true }) },
+    { icon: Cloud, title: t('services.items.cloud.title'), desc: t('services.items.cloud.desc'), features: t('services.items.cloud.features', { returnObjects: true }) },
+    { icon: Shield, title: t('services.items.security.title'), desc: t('services.items.security.desc'), features: t('services.items.security.features', { returnObjects: true }) },
+    { icon: BarChart3, title: t('services.items.analytics.title'), desc: t('services.items.analytics.desc'), features: t('services.items.analytics.features', { returnObjects: true }) },
+    { icon: Headphones, title: t('services.items.support.title'), desc: t('services.items.support.desc'), features: t('services.items.support.features', { returnObjects: true }) },
+    { icon: Share2, title: t('services.items.social.title'), desc: t('services.items.social.desc'), features: t('services.items.social.features', { returnObjects: true }) },
+  ];
+
+  const projects = [
+    {
+      title: t('portfolio.projects.ngo.title'),
+      category: t('portfolio.projects.ngo.category'),
+      description: t('portfolio.projects.ngo.description'),
+      tags: ["React", "Tailwind CSS", "Payment Gateway", "CMS"],
+      image: projectNgo,
+      color: "from-orange-500/20 to-red-500/20",
+    },
+    {
+      title: t('portfolio.projects.ecommerce.title'),
+      category: t('portfolio.projects.ecommerce.category'),
+      description: t('portfolio.projects.ecommerce.description'),
+      tags: ["E-Commerce", "Stripe", "Product Catalog", "Blog"],
+      image: projectHoney,
+      color: "from-amber-500/20 to-yellow-500/20",
+    },
+    {
+      title: t('portfolio.projects.trading.title'),
+      category: t('portfolio.projects.trading.category'),
+      description: t('portfolio.projects.trading.description'),
+      tags: ["Real-time Data", "Charts", "LMS", "WebSockets"],
+      image: projectTrading,
+      color: "from-emerald-500/20 to-cyan-500/20",
+    },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -142,7 +144,7 @@ const Index = () => {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-medium mb-8">
-                We Build the Future of Web
+                {t('hero.badge')}
               </span>
             </motion.div>
 
@@ -152,9 +154,9 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-6"
             >
-              NestHub Solutions{" "}
-              <span className="text-gradient">That Drive</span>{" "}
-              Results
+              {t('hero.title')}{" "}
+              <span className="text-gradient">{t('hero.titleHighlight')}</span>{" "}
+              {t('hero.results')}
             </motion.h1>
 
             <motion.p
@@ -163,7 +165,7 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
             >
-              We craft exceptional web experiences that transform businesses. From stunning designs to powerful applications, we bring your vision to life.
+              {t('hero.description')}
             </motion.p>
 
             <motion.div
@@ -176,13 +178,13 @@ const Index = () => {
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
               >
-                Start a Project <ArrowRight size={18} />
+                {t('hero.cta_primary')} <ArrowRight size={18} />
               </a>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
               >
-                Our Services
+                {t('hero.cta_secondary')}
               </a>
             </motion.div>
           </div>
@@ -215,9 +217,9 @@ const Index = () => {
       <section id="services" className="py-24 md:py-32">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-widest">What We Do</span>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">{t('services.section_label')}</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-3">
-              Services That <span className="text-gradient">Deliver</span>
+              {t('services.section_title')} <span className="text-gradient">{t('services.section_highlight')}</span>
             </h2>
           </AnimatedSection>
 
@@ -249,9 +251,9 @@ const Index = () => {
         <div className="hero-glow top-0 left-1/2 -translate-x-1/2" />
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-widest">Our Work</span>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">{t('portfolio.section_label')}</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-3">
-              Projects We're <span className="text-gradient">Proud Of</span>
+              {t('portfolio.section_title')} <span className="text-gradient">{t('portfolio.section_highlight')}</span>
             </h2>
           </AnimatedSection>
 
@@ -268,7 +270,7 @@ const Index = () => {
                     <img src={project.image} alt={project.title} className="w-full aspect-[4/3] object-cover" loading="lazy" />
                     <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center">
                       <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm">
-                        View Details <ExternalLink size={16} />
+                        {t('portfolio.view_details')} <ExternalLink size={16} />
                       </span>
                     </div>
                   </motion.div>
@@ -296,9 +298,9 @@ const Index = () => {
       <section id="testimonials" className="py-24 md:py-32">
         <div className="container mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-widest">Testimonials</span>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">{t('testimonials.section_label')}</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-3">
-              What Our Clients <span className="text-gradient">Say</span>
+              {t('testimonials.section_title')} <span className="text-gradient">{t('testimonials.section_highlight')}</span>
             </h2>
           </AnimatedSection>
 
@@ -338,12 +340,12 @@ const Index = () => {
         <div className="hero-glow top-0 left-1/2 -translate-x-1/2" />
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-widest">About Us</span>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">{t('about.section_label')}</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5">
-              Building the Web, <span className="text-gradient">One Pixel at a Time</span>
+              {t('about.section_title')} <span className="text-gradient">{t('about.section_highlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Founded in 2024, NestHub Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results.
+              {t('about.description')}
             </p>
           </AnimatedSection>
 
@@ -369,17 +371,16 @@ const Index = () => {
         <div className="container mx-auto px-6 relative z-10">
           <AnimatedSection className="glass-card rounded-2xl p-12 md:p-20 text-center max-w-4xl mx-auto">
             <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-              Ready to Build Something{" "}
-              <span className="text-gradient">Amazing</span>?
+              {t('cta.title')} <span className="text-gradient">{t('cta.title_highlight')}</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Let's turn your ideas into reality. Get in touch and let's start your next project together.
+              {t('cta.description')}
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
-              Get in Touch <ArrowRight size={18} />
+              {t('cta.button')} <ArrowRight size={18} />
             </a>
           </AnimatedSection>
         </div>
@@ -398,23 +399,23 @@ const Index = () => {
                 </div>
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <span className="inline-flex items-center gap-2 text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-                    <Calendar size={16} /> Schedule a Call
+                    <Calendar size={16} /> {t('calendly.badge')}
                   </span>
                   <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                    Book a Free <span className="text-gradient">1-on-1 Discovery Call</span>
+                    {t('calendly.title')} <span className="text-gradient">{t('calendly.title_highlight')}</span>
                   </h2>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Let's discuss your project in detail. Pick a time that works for you and we'll walk through your vision, goals, and how we can bring it to life.
+                    {t('calendly.description')}
                   </p>
                   <div className="flex flex-wrap gap-4 mb-8">
-                    {[{ icon: Clock, text: "30 min session" }, { icon: Video, text: "Video or Phone" }].map((item) => (
+                    {[{ icon: Clock, text: t('calendly.duration') }, { icon: Video, text: t('calendly.type') }].map((item) => (
                       <div key={item.text} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <item.icon size={16} className="text-primary" /> {item.text}
                       </div>
                     ))}
                   </div>
                   <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity w-full sm:w-auto">
-                    Book Your Free Call <ArrowRight size={18} />
+                    {t('calendly.button')} <ArrowRight size={18} />
                   </a>
                 </div>
               </div>
@@ -423,11 +424,11 @@ const Index = () => {
 
           {/* Contact Form */}
           <AnimatedSection className="max-w-3xl mx-auto text-center mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-widest">Contact Us</span>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">{t('contact.section_label')}</span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-5">
-              Or Send Us a <span className="text-gradient">Message</span>
+              {t('contact.section_title')} <span className="text-gradient">{t('contact.section_highlight')}</span>
             </h2>
-            <p className="text-lg text-muted-foreground">Have an idea? We'd love to hear about it.</p>
+            <p className="text-lg text-muted-foreground">{t('contact.section_description')}</p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
@@ -452,23 +453,23 @@ const Index = () => {
             <AnimatedSection className="lg:col-span-3" delay={0.2}>
               <form ref={formRef} onSubmit={handleSubmit} className="glass-card rounded-xl p-8 space-y-5">
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Name</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">{t('contact.form_name')}</label>
                   <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your name" />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Phone no</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">{t('contact.form_phone')}</label>
                   <input type="tel" pattern="(\+91)?[0-9]{10}"  required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your phone number" />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Email</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">{t('contact.form_email')}</label>
                   <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="you@example.com" />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-1.5 block">Message</label>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">{t('contact.form_message')}</label>
                   <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none" placeholder="Tell us about your project..." />
                 </div>
                 <button type="submit" disabled={sending} className="w-full flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-60">
-                  {sending ? (<>Sending... <Loader2 size={18} className="animate-spin" /></>) : (<>Send Message <Send size={18} /></>)}
+                  {sending ? (<>Sending... <Loader2 size={18} className="animate-spin" /></>) : (<>{t('contact.form_send')} <Send size={18} /></>)}
                 </button>
               </form>
             </AnimatedSection>

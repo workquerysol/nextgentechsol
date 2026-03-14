@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "We Build the Future of Web",
+    "title": "NestHub Solutions",
+    "subtitle": "",
+    "titleHighlight": "That Drive",
+    "results": "Results",
+    "description": "We craft exceptional web experiences that transform businesses. From stunning designs to powerful applications, we bring your vision to life.",
+    "cta_primary": "Start a Project",
+    "cta_secondary": "Our Services"
+  },
+  "stats": {
+    "projects": "Projects Delivered",
+    "satisfaction": "Client Satisfaction",
+    "experience": "Years Experience"
+  },
+  "services": {
+    "section_label": "What We Do",
+    "section_title": "Services That",
+    "section_highlight": "Deliver",
+    "items": {
+      "web_development": {
+        "title": "Custom Web Development",
+        "desc": "Tailored websites and web applications built with cutting-edge technologies.",
+        "features": ["React & Next.js", "API Integration", "CMS Development"]
+      },
+      "ui_design": {
+        "title": "UI/UX Design",
+        "desc": "User-centered design that converts. Intuitive interfaces backed by research.",
+        "features": ["Wireframing", "Prototyping", "User Testing"]
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "desc": "Pixel-perfect designs that look stunning on every device.",
+        "features": ["Mobile-First", "Cross-Browser", "Adaptive Layouts"]
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "desc": "Lightning-fast websites that rank higher and convert better.",
+        "features": ["Core Web Vitals", "Caching Strategy", "Code Splitting"]
+      },
+      "seo": {
+        "title": "SEO & Digital Marketing",
+        "desc": "Data-driven strategies to improve your online visibility.",
+        "features": ["Technical SEO", "Content Strategy", "Analytics Setup"]
+      },
+      "cloud": {
+        "title": "Cloud Solutions",
+        "desc": "Scalable cloud infrastructure that grows with your business.",
+        "features": ["Cloud Migration", "Auto-Scaling", "DevOps"]
+      },
+      "security": {
+        "title": "Security & Compliance",
+        "desc": "Enterprise-grade security to protect your data.",
+        "features": ["SSL/TLS", "GDPR Compliance", "Security Audits"]
+      },
+      "analytics": {
+        "title": "Analytics & Insights",
+        "desc": "Comprehensive analytics to track user behavior and impact.",
+        "features": ["Dashboard Setup", "A/B Testing", "ROI Tracking"]
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "desc": "Dedicated support and maintenance to keep you running 24/7.",
+        "features": ["24/7 Monitoring", "Regular Updates", "Priority Support"]
+      },
+      "social": {
+        "title": "Social Media Management",
+        "desc": "Strategic social media presence that builds your brand and engages your audience.",
+        "features": ["Content Creation", "Scheduling & Posting", "Growth Strategy"]
+      }
+    }
+  },
+  "portfolio": {
+    "section_label": "Our Work",
+    "section_title": "Projects We're",
+    "section_highlight": "Proud Of",
+    "description": "Every project tells a story. Here are three recent builds that showcase our craft, creativity, and commitment to results.",
+    "view_details": "View Details",
+    "projects": {
+      "ngo": {
+        "category": "NGO Website",
+        "title": "Hope Foundation",
+        "description": "A compassionate, impact-driven website for a non-profit organization. Features donation integration, volunteer sign-up, event management, and storytelling sections."
+      },
+      "ecommerce": {
+        "category": "E-Commerce",
+        "title": "Golden Harvest Honey",
+        "description": "A warm, inviting e-commerce platform for an artisanal honey brand with product catalog, cart system, secure checkout, and a blog."
+      },
+      "trading": {
+        "category": "Trading Platform",
+        "title": "TradeView Academy",
+        "description": "An educational trading platform combining real-time market data visualization with structured learning modules, interactive charts, and community discussions."
+      }
+    }
+  },
+  "testimonials": {
+    "section_label": "Testimonials",
+    "section_title": "What Our Clients",
+    "section_highlight": "Say"
+  },
+  "about": {
+    "section_label": "About Us",
+    "section_title": "Building the Web,",
+    "section_highlight": "One Pixel at a Time",
+    "description": "Founded in 2024, NestHub Solution is a passionate team of designers, developers, and strategists dedicated to creating exceptional digital experiences. In just 2 years, we've built a reputation for delivering quality work that drives real results."
+  },
+  "cta": {
+    "title": "Ready to Build Something",
+    "title_highlight": "Amazing",
+    "description": "Let's turn your ideas into reality. Get in touch and let's start your next project together.",
+    "button": "Get in Touch"
+  },
+  "contact": {
+    "section_label": "Contact Us",
+    "section_title": "Or Send Us a",
+    "section_highlight": "Message",
+    "section_description": "Have an idea? We'd love to hear about it.",
+    "form_name": "Your Name",
+    "form_phone": "Phone Number",
+    "form_email": "Your Email",
+    "form_message": "Your Message",
+    "form_send": "Send Message",
+    "form_sending": "Sending...",
+    "form_success": "Message sent! We'll get back to you soon.",
+    "form_error": "Failed to send message. Please try again."
+  },
+  "calendly": {
+    "badge": "Schedule a Call",
+    "title": "Book a Free",
+    "title_highlight": "1-on-1 Discovery Call",
+    "description": "Let's discuss your project in detail. Pick a time that works for you and we'll walk through your vision, goals, and how we can bring it to life.",
+    "duration": "30 min session",
+    "type": "Video or Phone",
+    "button": "Book Your Free Call"
+  }
+}
