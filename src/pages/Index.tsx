@@ -107,17 +107,18 @@ const Index = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           apiKey: STATICFORM_API_KEY,
+          subject: `User ${form.name} nquery`,
           name: form.name,
+          phone: form.phone,
           email: form.email,
           message: form.message,
-          subject: `User ${form.name} nquery`,
           replyTo: form.email,
         }),
       });
       const data = await response.json();
       if (data.success) {
         toast.success("Message sent! We'll get back to you soon.");
-        setForm({ name: "", email: "", message: "" });
+        setForm({ name: "", email: "", message: "", phone: "" });
       } else {
         toast.error(data.message || "Failed to send message. Please try again.");
       }
@@ -453,6 +454,10 @@ const Index = () => {
                 <div>
                   <label className="text-sm text-muted-foreground mb-1.5 block">Name</label>
                   <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your name" />
+                </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1.5 block">Phone no</label>
+                  <input type="tel" pattern="(\+91)?[0-9]{10}"  required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Your phone number" />
                 </div>
                 <div>
                   <label className="text-sm text-muted-foreground mb-1.5 block">Email</label>
