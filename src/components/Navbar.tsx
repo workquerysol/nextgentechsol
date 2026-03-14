@@ -81,7 +81,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="NestHub Solution" className="h-12 w-12 object-contain" />
+          <img src={logo} alt="NestHub Solution" className="h-20 w-20 object-contain" />
         </Link>
 
         {/* Desktop */}
