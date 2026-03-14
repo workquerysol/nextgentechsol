@@ -152,7 +152,7 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-6"
             >
-              Digital Solutions{" "}
+              NestHub Solutions{" "}
               <span className="text-gradient">That Drive</span>{" "}
               Results
             </motion.h1>
