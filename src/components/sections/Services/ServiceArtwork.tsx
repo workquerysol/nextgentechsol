@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
 import type { TonePalette } from './tones'
 
 interface ArtProps {
@@ -175,50 +176,43 @@ function MobileArt({ t, reduceMotion }: ArtProps) {
   )
 }
 
-function SpeedArt({ t, reduceMotion }: ArtProps) {
+function SocialArt({ t, reduceMotion }: ArtProps) {
   return (
     <svg viewBox="0 0 200 160" fill="none" className="h-full w-full">
-      <path d="M30 132 A70 70 0 0 1 170 132" stroke={t[100]} strokeWidth="16" strokeLinecap="round" fill="none" />
+      <rect x="20" y="14" width="120" height="132" rx="16" fill="#fff" stroke={t[200]} strokeWidth="2" />
+      <circle cx="40" cy="34" r="10" fill={t[300]} />
+      <rect x="56" y="28" width="46" height="6" rx="3" fill={t[300]} />
+      <rect x="56" y="38" width="32" height="6" rx="3" fill={t[100]} />
+      <rect x="20" y="56" width="120" height="52" fill={t[50]} />
+      <path d="M46 92 L64 68 L80 82 L100 58 L134 92 Z" fill={t[400]} opacity="0.5" />
       <motion.path
-        d="M30 132 A70 70 0 0 1 138 66"
-        stroke={t[500]}
-        strokeWidth="16"
-        strokeLinecap="round"
-        fill="none"
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
+        d="M32 122c0-3.9 3.1-7 7-7 3 0 5.1 1.4 6 3.5 0.9-2.1 3-3.5 6-3.5 3.9 0 7 3.1 7 7 0 5.8-8 10.8-13 13.7-5-2.9-13-7.9-13-13.7Z"
+        fill={t[500]}
+        animate={reduceMotion ? undefined : { scale: [1, 1.18, 1] }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ transformOrigin: '51px 122px' }}
       />
-      <g stroke={t[300]} strokeWidth="2.5" strokeLinecap="round">
-        <line x1="30" y1="132" x2="40" y2="132" />
-        <line x1="100" y1="60" x2="100" y2="70" />
-        <line x1="170" y1="132" x2="160" y2="132" />
-      </g>
-      <motion.g
-        style={{ transformOrigin: '100px 132px' }}
-        animate={reduceMotion ? undefined : { rotate: [-8, 6, -8] }}
-        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <line x1="100" y1="132" x2="136" y2="86" stroke={t[600]} strokeWidth="4" strokeLinecap="round" />
-      </motion.g>
-      <circle cx="100" cy="132" r="9" fill={t[600]} />
+      <rect x="66" y="120" width="20" height="7" rx="3.5" fill={t[200]} />
+      <rect x="90" y="120" width="14" height="7" rx="3.5" fill={t[200]} />
 
-      <g>
-        {[0, 1, 2].map((i) => (
-          <motion.rect
-            key={i}
-            x={150 + i * 14}
-            width="8"
-            rx="4"
-            fill={t[300]}
-            initial={{ height: 0, y: 150 }}
-            whileInView={{ height: 12 + i * 10, y: 150 - (12 + i * 10) }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 + i * 0.15 }}
-          />
-        ))}
-      </g>
+      <motion.g
+        animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <circle cx="164" cy="42" r="22" fill="#fff" stroke={t[300]} strokeWidth="2" />
+        <path
+          d="M156 44c0-3.3 2.6-6 6-6 2.4 0 4.1 1 4.9 2.6 0.8-1.6 2.5-2.6 4.9-2.6 3.4 0 6 2.7 6 6 0 5-6.5 8.9-10.9 11.7-4.4-2.8-10.9-6.7-10.9-11.7Z"
+          fill={t[500]}
+        />
+      </motion.g>
+
+      <motion.g
+        animate={reduceMotion ? undefined : { y: [0, 8, 0], x: [0, -4, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+      >
+        <rect x="146" y="98" width="46" height="34" rx="10" fill="#fff" stroke={t[200]} strokeWidth="2" />
+        <path d="M158 116h20M172 110l6 6-6 6" stroke={t[500]} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </motion.g>
     </svg>
   )
 }
@@ -270,7 +264,7 @@ const artByIcon: Record<string, (props: ArtProps) => ReturnType<typeof AiArt>> =
   dev: DevArt,
   design: DesignArt,
   mobile: MobileArt,
-  speed: SpeedArt,
+  social: SocialArt,
   seo: SeoArt,
 }
 
@@ -282,13 +276,22 @@ interface ServiceArtworkProps {
 
 /** Renders the bespoke SVG illustration for a given service icon key. */
 export function ServiceArtwork({ icon, t, className }: ServiceArtworkProps) {
-  const reduceMotion = Boolean(useReducedMotion())
+  const prefersReduced = Boolean(useReducedMotion())
+  const ref = useRef<HTMLDivElement>(null)
+  // Not `once` — these loop forever once started, so without an off-screen
+  // pause they kept animating (and repainting) for every mounted card on
+  // every page, whether the card was on screen or not. That constant
+  // background work was showing up as scroll jank, and a card revisited
+  // after being off-screen a while could render mid-keyframe looking
+  // broken until the loop cycled back round.
+  const inView = useInView(ref, { margin: '-10% 0px -10% 0px' })
   const Art = artByIcon[icon]
   if (!Art) return null
+  const paused = prefersReduced || !inView
 
   return (
-    <div aria-hidden className={className}>
-      <Art t={t} reduceMotion={reduceMotion} />
+    <div ref={ref} aria-hidden className={className}>
+      <Art t={t} reduceMotion={paused} />
     </div>
   )
 }

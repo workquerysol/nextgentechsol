@@ -6,32 +6,45 @@ import { stack } from '../../data/content'
 
 export function TechStack() {
   const listRef = useRef<HTMLDivElement>(null)
-  const inView = useInView(listRef, { once: true, margin: '-10% 0px -10% 0px' })
+  // Not `once` — the float loop below runs forever once started, so it needs
+  // to know when the section leaves the viewport again to pause itself.
+  const inView = useInView(listRef, { margin: '-10% 0px -10% 0px' })
   const played = useRef(false)
+  const floatLoop = useRef<ReturnType<typeof animate> | null>(null)
 
   useEffect(() => {
-    if (!inView || !listRef.current || played.current) return
-    played.current = true
-    const badges = listRef.current.querySelectorAll('[data-badge]')
+    if (!listRef.current) return
 
-    animate(badges, {
-      opacity: [0, 1],
-      translateY: [22, 0],
-      scale: [0.9, 1],
-      duration: 700,
-      delay: stagger(70),
-      ease: 'outCubic',
-      onComplete: () => {
-        animate(badges, {
-          translateY: [0, -12],
-          duration: 3200,
-          delay: stagger(220),
-          loop: true,
-          alternate: true,
-          ease: 'inOutSine',
-        })
-      },
-    })
+    if (inView && !played.current) {
+      played.current = true
+      const badges = listRef.current.querySelectorAll('[data-badge]')
+
+      animate(badges, {
+        opacity: [0, 1],
+        translateY: [22, 0],
+        scale: [0.9, 1],
+        duration: 700,
+        delay: stagger(70),
+        ease: 'outCubic',
+        onComplete: () => {
+          floatLoop.current = animate(badges, {
+            translateY: [0, -12],
+            duration: 3200,
+            delay: stagger(220),
+            loop: true,
+            alternate: true,
+            ease: 'inOutSine',
+          })
+        },
+      })
+      return
+    }
+
+    // An infinite loop left running while scrolled away was doing constant,
+    // pointless work in the background and showing up as scroll jank — pause
+    // it off-screen and pick back up when the section returns.
+    if (inView) floatLoop.current?.resume()
+    else floatLoop.current?.pause()
   }, [inView])
 
   return (

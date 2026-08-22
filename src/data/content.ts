@@ -74,7 +74,6 @@ export const icons: Record<string, IconDef> = {
   ],
   responsive: ['M4 4h16v11H4z', 'M9 20h6', 'M12 17v3', 'M15 7h3v6h-3z'],
   mobile: ['M8 2.5h8a1.5 1.5 0 0 1 1.5 1.5v16a1.5 1.5 0 0 1-1.5 1.5H8A1.5 1.5 0 0 1 6.5 20V4A1.5 1.5 0 0 1 8 2.5Z', 'M11 19h2'],
-  speed: ['M13 3 4 14h7l-1 7 9-11h-7z'],
   seo: ['M4 19V9', 'M10 19V5', 'M16 19v-7', 'M22 19H2'],
   care: ['M12 3 4 6.5v5c0 4.6 3.2 8.4 8 9.5 4.8-1.1 8-4.9 8-9.5v-5z', 'M9 12l2 2 4-4'],
   target: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z', 'M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z', 'M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z'],
@@ -89,6 +88,32 @@ export const icons: Record<string, IconDef> = {
   briefcase: ['M3 8.5A1.5 1.5 0 0 1 4.5 7h15A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z', 'M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7', 'M3 12h18'],
   mapPin: ['M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12Z', 'M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z'],
   send: ['m3 11 18-8-8 18-2.5-7.5L3 11Z'],
+  social: ['M3 10.5v3a1.5 1.5 0 0 0 1.5 1.5H6l5 4v-14l-5 4H4.5A1.5 1.5 0 0 0 3 10.5Z', 'M15.5 9a3.5 3.5 0 0 1 0 6', 'M18.5 6.5a7.5 7.5 0 0 1 0 11'],
+  search: ['M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z', 'm21 21-4.35-4.35'],
+  clipboardCheck: [
+    'M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z',
+    'M6 7h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z',
+    'm9 13 2.2 2.2L15.5 11',
+  ],
+  rocket: [
+    'M12 2c2.5 2 4 5.5 4 9 0 2-.5 4-1.3 5.6L12 19l-2.7-2.4C8.5 15 8 13 8 11c0-3.5 1.5-7 4-9Z',
+    'M9.5 16.5 7 19l.5-3.2',
+    'M14.5 16.5 17 19l-.5-3.2',
+    'M12 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z',
+  ],
+  headset: [
+    'M4 13v-1a8 8 0 0 1 16 0v1',
+    'M4 13a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2v-2Z',
+    'M20 13a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2v-2Z',
+    'M17 17.5a3 3 0 0 1-3 2.5h-1.5',
+  ],
+  chat: ['M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z', 'M8 8h8', 'M8 11h5'],
+  team: [
+    'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+    'M3.5 20c.6-3.2 2.9-5 5.5-5s4.9 1.8 5.5 5',
+    'M16 8a2.5 2.5 0 1 0 0-5',
+    'M16.2 11c1.9.4 3.3 1.9 3.8 4.5',
+  ],
 }
 
 export type ServiceAccent = 'violet' | 'sky' | 'orange' | 'emerald' | 'amber' | 'teal'
@@ -115,18 +140,10 @@ export const services: Service[] = [
   {
     title: 'Website Development',
     body: 'Tailored websites and web applications built with cutting-edge technologies.',
-    tags: ['React & Node.js', 'API Integration', 'CMS Development'],
+    tags: ['eCommerce', 'CRM-Tools', 'CMS Development', 'Custom Website Development'],
     icon: 'dev',
     accent: 'sky',
     badge: 'Web Engineering',
-  },
-  {
-    title: 'UI/UX Design',
-    body: 'User-centered design that converts. Intuitive interfaces backed by research.',
-    tags: ['Wireframing', 'Prototyping', 'User Testing'],
-    icon: 'design',
-    accent: 'orange',
-    badge: 'Product Design',
   },
   {
     title: 'Mobile App Development',
@@ -137,20 +154,28 @@ export const services: Service[] = [
     badge: 'Mobile Engineering',
   },
   {
-    title: 'Performance Optimization',
-    body: 'Lightning-fast websites that rank higher and convert better.',
-    tags: ['Core Web Vitals', 'Caching Strategy', 'Code Splitting'],
-    icon: 'speed',
-    accent: 'amber',
-    badge: 'Web Performance',
-  },
-  {
     title: 'SEO & Digital Marketing',
     body: 'Data-driven strategies to improve your online visibility.',
-    tags: ['Technical SEO', 'Content Strategy', 'Analytics Setup'],
+    tags: ['Technical SEO','Meta Ads','Google Ads', 'Content Strategy', 'Analytics Setup'],
     icon: 'seo',
     accent: 'teal',
     badge: 'Growth & Marketing',
+  },
+  {
+    title: 'Social Media Marketing',
+    body: 'Build brand presence and drive engagement with strategic content, paid campaigns and community management across platforms.',
+    tags: ['Content Strategy', 'Paid Campaigns', 'Community Management'],
+    icon: 'social',
+    accent: 'amber',
+    badge: 'Social & Community',
+  },
+  {
+    title: 'UI/UX Design',
+    body: 'User-centered design that converts. Intuitive interfaces backed by research.',
+    tags: ['Wireframing', 'Prototyping', 'User Testing'],
+    icon: 'design',
+    accent: 'orange',
+    badge: 'Product Design',
   },
 ]
 
@@ -306,13 +331,20 @@ export const stack = [
   { name: 'React 19', mark: 'Re' },
   { name: 'Next.js 15', mark: 'N' },
   { name: 'TypeScript', mark: 'TS' },
+  { name: 'React Native', mark: 'RN' },
   { name: 'Node.js', mark: 'Nd' },
+  { name: 'GraphQL', mark: 'GQ' },
   { name: 'MongoDB', mark: 'M' },
-  { name: 'SQL', mark: 'SQ' },
-  { name: 'Postgres', mark: 'PG' },
+  { name: 'PostgreSQL', mark: 'PG' },
+  { name: 'Redis', mark: 'Rd' },
   { name: 'Tailwind', mark: 'Tw' },
+  { name: 'Figma', mark: 'Fg' },
+  { name: 'Docker', mark: 'Dk' },
+  { name: 'AWS', mark: 'AW' },
+  { name: 'Vercel', mark: 'Vc' },
+  { name: 'Stripe', mark: 'St' },
   { name: 'AI / LLM', mark: 'AI' },
-  { name: 'Agentic Ai', mark: 'Ag' },
+  { name: 'Agentic AI', mark: 'Ag' },
   { name: 'SEO', mark: 'SE' },
 ]
 
@@ -320,21 +352,36 @@ export interface Step {
   n: string
   title: string
   body: string
+  duration: string
+  icon: string
 }
 
 export const steps: Step[] = [
-  { n: '01', title: 'Discovery', body: 'Stakeholder interviews, analytics audit and a written brief we both sign off on.' },
-  { n: '02', title: 'Design', body: 'Wireframes to high-fidelity system in Figma, reviewed live rather than by email.' },
-  { n: '03', title: 'Development', body: 'Component-driven build with preview deploys on every pull request.' },
-  { n: '04', title: 'Testing', body: 'Cross-device QA, accessibility audit and Core Web Vitals budgets enforced in CI.' },
-  { n: '05', title: 'Launch', body: 'Zero-downtime migration, redirects mapped, analytics and monitoring verified.' },
-  { n: '06', title: 'Support', body: 'A named engineer, monthly performance reporting and a roadmap that keeps moving.' },
+  { n: '01', title: 'Discovery', body: 'Stakeholder interviews, analytics audit and a written brief we both sign off on.', duration: '1-2 Weeks', icon: 'search' },
+  { n: '02', title: 'Design', body: 'Wireframes to high-fidelity system in Figma, reviewed live rather than by email.', duration: '1-2 Weeks', icon: 'design' },
+  { n: '03', title: 'Development', body: 'Component-driven build with preview deploys on every pull request.', duration: '2-6 Weeks', icon: 'dev' },
+  { n: '04', title: 'Testing', body: 'Cross-device QA, accessibility audit and Core Web Vitals budgets enforced in CI.', duration: '1-2 Weeks', icon: 'clipboardCheck' },
+  { n: '05', title: 'Launch', body: 'Zero-downtime migration, redirects mapped, analytics and monitoring verified.', duration: '3-5 Days', icon: 'rocket' },
+  { n: '06', title: 'Support', body: 'A named engineer, monthly performance reporting and a roadmap that keeps moving.', duration: 'Ongoing', icon: 'headset' },
+]
+
+export interface ProcessHighlight {
+  icon: string
+  title: string
+  body: string
+}
+
+export const processHighlights: ProcessHighlight[] = [
+  { icon: 'care', title: 'Transparent at every step', body: "You'll always know what's next." },
+  { icon: 'chat', title: 'Clear communication', body: 'Real updates, not radio silence.' },
+  { icon: 'target', title: 'Built for results', body: 'Performance, SEO and growth baked in.' },
+  { icon: 'team', title: 'Long-term partnership', body: 'We ship, support and keep improving.' },
 ]
 
 export const needs = ['New website', 'Redesign', 'AI integration', 'Ongoing partner']
 
 export const aboutIntro =
-  "Founded in 2023, NestHub Solution is Jaipur's top-rated web development and freelancing agency. Our team of designers, developers, and strategists serves businesses across Jaipur, Delhi, Mumbai, Bangalore, and all of India — delivering websites and digital products that drive real results."
+  "Founded in 2023, NestHub Solution is Jaipur's top-rated web development studio. Our team of designers, developers, and strategists serves businesses across Jaipur, Delhi, Mumbai, Bangalore, and all of India — delivering websites and digital products that drive real results."
 
 export const values = [
   { title: 'Innovation First', body: 'We stay ahead of the curve, leveraging the latest technologies.', icon: 'target' },

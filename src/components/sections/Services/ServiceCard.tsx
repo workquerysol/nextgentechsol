@@ -15,7 +15,7 @@ interface ServiceCardProps {
 function IconBadge({ service, t, a }: { service: Service; t: TonePalette; a: AccentStyle }) {
   return (
     <span
-      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105 ${a.iconGlow}`}
+      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/70 bg-white/90 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105 ${a.iconGlow}`}
     >
       <Icon name={service.icon} color={t[600]} size={22} />
     </span>
@@ -29,7 +29,7 @@ function CategoryBadge({ label, a }: { label: string; a: AccentStyle }) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-10%' }}
-      className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[.08em] backdrop-blur-sm ${a.badgeBg} ${a.badgeText} ${a.badgeBorder}`}
+      className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[.08em] ${a.badgeBg} ${a.badgeText} ${a.badgeBorder}`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${a.badgeDot}`} />
       {label}
@@ -61,7 +61,7 @@ function ServiceCardImpl({ service, index }: ServiceCardProps) {
     <TiltCard max={6} lift={-4} className={`h-full rounded-[32px] ${cardMinHeight}`}>
       <article
         aria-labelledby={`service-${index}-title`}
-        className={`group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-black/[.06] bg-white/90 p-7 shadow-[0_1px_2px_rgba(0,0,0,.04),0_20px_45px_-24px_rgba(0,0,0,.18)] backdrop-blur-sm transition-[box-shadow,border-color] duration-500 sm:p-8 ${a.border} ${a.shadowHover}`}
+        className={`group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-black/[.06] bg-white p-7 shadow-[0_1px_2px_rgba(0,0,0,.04),0_20px_45px_-24px_rgba(0,0,0,.18)] transition-[box-shadow,border-color] duration-500 sm:p-8 ${a.border} ${a.shadowHover}`}
       >
         <div
           aria-hidden
