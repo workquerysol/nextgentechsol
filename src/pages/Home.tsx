@@ -10,6 +10,7 @@ import { TechStack } from '../components/sections/TechStack'
 import { Process } from '../components/sections/Process'
 import { About } from '../components/sections/About'
 import { Team } from '../components/sections/Team'
+import { Faq } from '../components/sections/Faq'
 import { BookCall } from '../components/sections/BookCall'
 import { Contact } from '../components/sections/Contact'
 
@@ -32,6 +33,7 @@ export function Home() {
       <Process />
       <About />
       <Team />
+      <Faq />
       <BookCall />
       <Contact />
     </main>

@@ -15,7 +15,7 @@ export type IconDef = string[]
 export const brand = {
   name: 'NestHub Solution',
   location: 'Jaipur, Rajasthan, India',
-  founded: '2023',
+  founded: '2025',
   email: 'contact@nesthubsolution.in',
   phone: '+91 8188941304',
   calendly: 'https://calendly.com/workquerysol/30min',
@@ -27,6 +27,7 @@ export const navLinks = [
   { href: '/#product', label: 'Product' },
   { href: '/#process', label: 'Process' },
   { href: '/#about', label: 'About' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/#contact', label: 'Contact' },
   { href: '/careers', label: 'Careers' },
 ]
@@ -380,8 +381,48 @@ export const processHighlights: ProcessHighlight[] = [
 
 export const needs = ['New website', 'Redesign', 'AI integration', 'Ongoing partner']
 
+export interface FaqItem {
+  q: string
+  a: string
+}
+
+export const faqs: FaqItem[] = [
+  {
+    q: 'Who is NestHub Solution?',
+    a: "We're a web development studio based in Jaipur, Rajasthan, founded in 2025. Our team of designers, developers and strategists has shipped projects like Vedyara Organic, Fitlife Sutra and TheFineGrow for clients across India.",
+  },
+  {
+    q: 'Do you work with clients outside Jaipur?',
+    a: 'Yes. While we\'re based in Jaipur, we work fully remotely with clients across Delhi, Mumbai, Bangalore, Hyderabad, Pune, Chennai, Kolkata and Ahmedabad. Distance has never been a blocker on a project.',
+  },
+  {
+    q: 'What services does NestHub Solution offer?',
+    a: 'AI integration, website development, mobile app development (Android & iOS), UI/UX design, SEO & digital marketing, and social media marketing — one senior team handling strategy through to launch, no handoffs.',
+  },
+  {
+    q: 'How much does a website cost?',
+    a: "Pricing is scoped to each project rather than a flat rate, with competitive mid-range pricing built for Indian SMEs and startups. Book a free 30-minute discovery call and we'll give you a clear quote.",
+  },
+  {
+    q: 'How long does a project take?',
+    a: 'Landing pages typically take 1–2 weeks, full business websites 3–5 weeks, and e-commerce or AI-integrated platforms 6–12 weeks. You get a firm timeline after the discovery call, not a guess.',
+  },
+  {
+    q: 'Can you integrate AI into my website or app?',
+    a: 'Yes — chatbots, smart search, product recommendations, content generation, business automation and predictive analytics are all things we build into client products regularly.',
+  },
+  {
+    q: 'Do you build mobile apps as well as websites?',
+    a: 'Yes. We build native and cross-platform apps for Android and iOS, primarily with React Native, alongside the web work — useful when a product needs both from one team.',
+  },
+  {
+    q: 'Is NestHub Solution hiring?',
+    a: "Usually, yes. Open roles typically include React Native Developer, Business Development Executive and MERN Stack Intern positions in Jaipur or remote. Check current openings and apply on our Careers page.",
+  },
+]
+
 export const aboutIntro =
-  "Founded in 2023, NestHub Solution is Jaipur's top-rated web development studio. Our team of designers, developers, and strategists serves businesses across Jaipur, Delhi, Mumbai, Bangalore, and all of India — delivering websites and digital products that drive real results."
+  "Founded in 2025, NestHub Solution is Jaipur's top-rated web development studio. Our team of designers, developers, and strategists serves businesses across Jaipur, Delhi, Mumbai, Bangalore, and all of India — delivering websites and digital products that drive real results."
 
 export const values = [
   { title: 'Innovation First', body: 'We stay ahead of the curve, leveraging the latest technologies.', icon: 'target' },

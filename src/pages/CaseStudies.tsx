@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Reveal } from '../components/Reveal'
 import { Icon } from '../components/Icon'
+import { Faq } from '../components/sections/Faq'
 import { accentStyles, tones } from '../components/sections/Services/tones'
 import { getDomain } from '../utils/url'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -207,6 +208,8 @@ export function CaseStudies() {
           </div>
         </Reveal>
       </section>
+
+      <Faq />
     </main>
   )
 }

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Reveal } from '../components/Reveal'
 import { TiltCard } from '../components/TiltCard'
 import { Icon } from '../components/Icon'
+import { Faq } from '../components/sections/Faq'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { brand, jobs, type Job } from '../data/content'
 
@@ -133,6 +134,8 @@ export function Careers() {
           </div>
         </Reveal>
       </section>
+
+      <Faq />
     </main>
   )
 }
