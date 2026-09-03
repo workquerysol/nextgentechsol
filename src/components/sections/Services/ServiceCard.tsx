@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { TiltCard } from '../../TiltCard'
 import { Icon } from '../../Icon'
@@ -57,7 +58,7 @@ function ServiceCardImpl({ service, index }: ServiceCardProps) {
   const t = tones[service.accent]
   const a = accentStyles[service.accent]
 
-  return (
+  const cardContent = (
     <TiltCard max={6} lift={-4} className={`h-full rounded-[32px] ${cardMinHeight}`}>
       <article
         aria-labelledby={`service-${index}-title`}
@@ -88,10 +89,28 @@ function ServiceCardImpl({ service, index }: ServiceCardProps) {
             <TagList tags={service.tags} a={a} />
           </div>
 
+          {service.href && (
+            <div className="mt-5 flex items-center gap-1.5 text-[13.5px] font-bold transition-all duration-300 group-hover:translate-x-1" style={{ color: t[600] }}>
+              Learn More & Tech Stack
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          )}
         </div>
       </article>
     </TiltCard>
   )
+
+  if (service.href) {
+    return (
+      <Link to={service.href} className="block h-full no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-[32px]">
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return cardContent
 }
 
 export const ServiceCard = memo(ServiceCardImpl)

@@ -1,8 +1,10 @@
-import logoSKC from '../assets/logo-skc.png'
 import logoVedyara from '../assets/logo-vedyara.png'
 import logoFitlifeSutra from '../assets/logo-fitlifesutra.png'
 import logoTheFineGrow from '../assets/logo-thefinegrow.png'
 import logoIllusionmed from '../assets/illusionmed-logo.png'
+import logoSKC from '../assets/logo-skc.png'
+import logoGSS from '../assets/logo-gss.jpg'
+import logoScanIt from '../assets/logo-scanit.png'
 import projectHoney from '../assets/project-honey.png'
 import projectHealth from '../assets/project-health.png'
 import projectHealth1 from '../assets/project-health1.png'
@@ -38,8 +40,10 @@ export const productMockup = scanitMockup
 export const trustedBy = [
   { name: 'Vedyara Organic', logo: logoVedyara },
   { name: 'Fitlife Sutra', logo: logoFitlifeSutra },
-  { name: 'IllusionMed', logo: logoIllusionmed },
   { name: 'SKC', logo: logoSKC },
+  { name: 'G.S.S. Welfare Association', logo: logoGSS },
+  { name: 'IllusionMed', logo: logoIllusionmed },
+  { name: 'ScanIt', logo: logoScanIt },
 ]
 
 export const trustStats = [
@@ -128,16 +132,18 @@ export interface Service {
   accent: ServiceAccent
   /** Small category label shown above the title in the service card. */
   badge: string
+  href?: string
 }
 
 export const services: Service[] = [
   {
     title: 'AI Integration',
-    body: 'Embed AI-powered capabilities into your product — intelligent chatbots, smart search, recommendation engines, content generation & predictive analytics.',
-    tags: ['AI Chatbots', 'Smart Search', 'Recommendations', 'Automation'],
+    body: 'Embed AI-powered capabilities into your product — AI lead generation software, intelligent chatbots, smart search, recommendation engines & automated workflows.',
+    tags: ['AI Lead Generation', 'AI Chatbots', 'Smart Search', 'Automation'],
     icon: 'ai',
     accent: 'violet',
     badge: 'Artificial Intelligence',
+    href: '/services/ai-integration',
   },
   {
     title: 'Website Development',
@@ -146,6 +152,7 @@ export const services: Service[] = [
     icon: 'dev',
     accent: 'sky',
     badge: 'Web Engineering',
+    href: '/services/website-development',
   },
   {
     title: 'Mobile App Development',
@@ -154,6 +161,7 @@ export const services: Service[] = [
     icon: 'mobile',
     accent: 'emerald',
     badge: 'Mobile Engineering',
+    href: '/services/mobile-app-development',
   },
   {
     title: 'SEO & Digital Marketing',
@@ -162,6 +170,7 @@ export const services: Service[] = [
     icon: 'seo',
     accent: 'teal',
     badge: 'Growth & Marketing',
+    href: '/services/seo-digital-marketing',
   },
   {
     title: 'Social Media Marketing',
@@ -170,6 +179,7 @@ export const services: Service[] = [
     icon: 'social',
     accent: 'amber',
     badge: 'Social & Community',
+    href: '/services/social-media-marketing',
   },
   {
     title: 'UI/UX Design',
@@ -178,6 +188,7 @@ export const services: Service[] = [
     icon: 'design',
     accent: 'orange',
     badge: 'Product Design',
+    href: '/services/ui-ux-design',
   },
 ]
 
@@ -280,6 +291,22 @@ export const projects: Project[] = [
     image: projectIllusionmed,
     logo: logoIllusionmed,
     accent: 'teal',
+  },
+  {
+    slug: 'dr-sunil-chaudhary',
+    title: 'Dr. Sunil Chaudhary',
+    body: 'A comprehensive medical clinic & healthcare platform providing patient consultation booking, specialized medical services overview, health blogs, and online appointment scheduling.',
+    category: 'Healthcare & Medical Platform',
+    tags: ['Healthcare', 'Medical Clinic', 'Doctor Consultation', 'Appointment Booking'],
+    highlights: [
+      'Online appointment scheduling for doctor consultations',
+      'Clean, accessible medical services overview and patient resources',
+      'Mobile-responsive health platform built for seamless patient experience',
+    ],
+    href: 'https://drsunilchaudhary.com/',
+    image: projectHealth,
+    logo: logoSKC,
+    accent: 'sky',
   },
 ]
 

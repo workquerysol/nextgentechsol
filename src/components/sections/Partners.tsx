@@ -21,13 +21,18 @@ export function Partners() {
           className="relative mt-11 overflow-hidden py-2"
           style={{ maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)' }}
         >
-          <div className="flex w-max animate-marquee items-center gap-20">
+          <div className="flex w-max animate-marquee items-center gap-16 sm:gap-24">
             {marqueeItems.map((client, i) => (
               <div
                 key={`${client.name}-${i}`}
-                className="flex h-19 shrink-0 items-center justify-center opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-35"
+                className="group flex h-36 shrink-0 items-center justify-center rounded-3xl bg-white px-8 py-5 transition-all duration-300 sm:h-48"
               >
-                <img src={client.logo} alt={client.name} title={client.name} className="h-full w-auto max-w-[200px] object-contain" />
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  title={client.name}
+                  className="h-full w-auto max-w-[380px] object-contain opacity-80 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 sm:max-w-[480px]"
+                />
               </div>
             ))}
           </div>
