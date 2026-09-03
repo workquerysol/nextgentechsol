@@ -1,3 +1,4 @@
+import logoSKC from '../assets/logo-skc.png'
 import logoVedyara from '../assets/logo-vedyara.png'
 import logoFitlifeSutra from '../assets/logo-fitlifesutra.png'
 import logoTheFineGrow from '../assets/logo-thefinegrow.png'
@@ -37,8 +38,8 @@ export const productMockup = scanitMockup
 export const trustedBy = [
   { name: 'Vedyara Organic', logo: logoVedyara },
   { name: 'Fitlife Sutra', logo: logoFitlifeSutra },
-  { name: 'TheFineGrow', logo: logoTheFineGrow },
   { name: 'IllusionMed', logo: logoIllusionmed },
+  { name: 'SKC', logo: logoSKC },
 ]
 
 export const trustStats = [
