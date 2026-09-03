@@ -16,8 +16,8 @@ export function Footer() {
       <div className="mx-auto max-w-[1320px] grid grid-cols-1 gap-12 px-6 py-18 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-2.5">
-            <Logo size={26} />
-            <LogoFallback size={26} />
+            <Logo size={50} />
+            <LogoFallback size={50} />
             <span className="text-[16.5px] font-bold tracking-[-.02em]">{brand.name}</span>
           </div>
           <p className="mt-4 max-w-[300px] text-[16px] leading-relaxed text-muted">
@@ -79,7 +79,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-4 border-t border-line px-6 py-6">
-        <span className="text-[14.5px] text-muted">© 2026 {brand.name}. All rights reserved.</span>
+        <span className="text-[14.5px] text-muted">{`© 2026 ${brand.name}. All rights reserved.`}</span>
         <span className="flex gap-6">
           <a href="/#top" className="text-[14.5px] text-muted hover:text-ink transition-colors">
             Privacy

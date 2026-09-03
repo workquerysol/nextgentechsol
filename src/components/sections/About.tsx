@@ -38,7 +38,7 @@ export function About() {
       <Reveal delay={0.15}>
         <div className="mt-14 overflow-hidden rounded-[24px] border border-line bg-[radial-gradient(700px_260px_at_50%_0%,rgba(37,99,235,.08),rgba(37,99,235,0)_70%)] bg-ink px-8 py-14 text-center sm:px-16 sm:py-16">
           <h3 className="text-balance text-[26px] sm:text-[34px] font-bold leading-[1.15] tracking-[-.03em] text-white">
-            Ready to Work With Jaipur's Top Agency?
+            Ready to Work With Jaipur's Top Web Studio?
           </h3>
           <p className="text-pretty mx-auto mt-4 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.6] text-white/60">
             Whether you're in Jaipur, Delhi, Mumbai, or anywhere in India — let's build something great together.
