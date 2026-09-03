@@ -1,6 +1,17 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import "./config/i18n";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from '@mui/material/styles'
+import { muiTheme } from './theme/muiTheme'
+import './index.css'
+import App from './App.tsx'
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={muiTheme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </StrictMode>,
+)

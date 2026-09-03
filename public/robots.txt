@@ -1,14 +1,118 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://nesthubsolution.in/sitemap.xml
+
+# Standard Search Crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Social Media Crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# AI / Generative Engine Crawlers (GEO)
+# Explicitly allow AI assistants to read and cite our content.
+# ─────────────────────────────────────────────────────────────
+
+# OpenAI — ChatGPT, SearchGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI — Gemini, SGE, AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl (trains many open AI models)
+User-agent: CCBot
+Allow: /
+
+# AI2Bot (Allen Institute for AI)
+User-agent: AI2Bot
+Allow: /
+
+# Bytespider (ByteDance / TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# Timpibot (Timpi search / AI)
+User-agent: Timpibot
+Allow: /
+
+# Kangaroo Bot (AI search)
+User-agent: Kangaroo Bot
+Allow: /
+
+# omgilibot / Webz.io (news AI)
+User-agent: omgilibot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────
+# AI Agent Discovery Files
+# These are the machine-readable manifests for AI agents.
+# ─────────────────────────────────────────────────────────────
+# llms.txt  (plain-English AI content):  https://nesthubsolution.in/llms.txt
+# ai-plugin: https://nesthubsolution.in/.well-known/ai-plugin.json
+# oEmbed:    https://nesthubsolution.in/.well-known/oembed.json
