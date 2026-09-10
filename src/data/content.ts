@@ -11,6 +11,7 @@ import projectHealth1 from '../assets/project-health1.png'
 import projectTrading from '../assets/project-trading.png'
 import projectAgencyOS from '../assets/agencyos.png'
 import projectIllusionmed from '../assets/illusionmed-img.png'
+import projectDrSunil from '../assets/project-drsunil.png'
 import scanitMockup from '../assets/scanit-mockup.png'
 
 export type IconDef = string[]
@@ -304,7 +305,7 @@ export const projects: Project[] = [
       'Mobile-responsive health platform built for seamless patient experience',
     ],
     href: 'https://drsunilchaudhary.com/',
-    image: projectHealth,
+    image: projectDrSunil,
     logo: logoSKC,
     accent: 'sky',
   },
